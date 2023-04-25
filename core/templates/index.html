@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>D-E-MAIL</title>
+
+    <style>
+      .text {
+        color: #15b330;
+      }
+    </style>
+  </head>
+  <body>
+    {% if messages %}
+      {% for m in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+      </div>
+      {% endfor %}
+    {% endif %}
+    <div class="container text-center">
+      <h2 class="my-5 text">D-E-MAIL</h2>
+    </div>
+    <form class="container" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="text" required name="to" class="form-control"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Subject</label>
+        <input type="text" required name="sub" class="form-control"/>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="5"></textarea>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" type="file" name="file" multiple/>
+      </div>
+      <button type="submit" class="btn btn-success container-fluid">Send</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
