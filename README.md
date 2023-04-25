@@ -1,7 +1,6 @@
 # D-E-MAIL
 D-E-MAIL is a Django email Sender Application
 
-#----------------------------------------------------
 --------- Instructions ---------
 
 1. First go to your email account and create a app password
